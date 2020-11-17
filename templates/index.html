@@ -66,7 +66,7 @@
         :key="report.name"
         @click="selectReport(report)"
         data-toggle="modal"
-        data-target="#reportModal">>
+        data-target="#reportModal">
         <div class="card-body" >
           <h3 class="card-title h4">[[ report.name ]]</h3>
           <!-- TODO: Add icon here? -->
@@ -76,7 +76,6 @@
     </div>
 
     <!-- Parameters/submit button in a modal -->
-    <!-- TODO: Show this modal on the first rather than second click of a card by moving this modal to its own component and passing in this.selectedReport as a prop -->
     <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-hidden="true" v-if="selectedReport">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -158,8 +157,7 @@
       components: {
         vuejsDatepicker
       },
-      // Since Vue and jinja2 both use the same delimiters by default,
-      // ie {{ }}, here we instruct Vue to use [[ ]] instead.
+      // Instruct Vue to use different delimiters than jinja2
       delimiters: ['[[', ']]'],
       data: {
         storageServiceID: '{{ storage_service.id }}',
